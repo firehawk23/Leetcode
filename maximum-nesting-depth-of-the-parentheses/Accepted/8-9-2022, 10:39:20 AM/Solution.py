@@ -1,0 +1,12 @@
+// https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses
+
+class Solution:
+    def maxDepth(self, s: str) -> int:
+        curr_depth = depth = 0
+        for c in s:
+            if c=="(":
+                curr_depth +=1
+                depth = max(depth,curr_depth)
+            if c==")":
+                curr_depth-=1
+        return depth

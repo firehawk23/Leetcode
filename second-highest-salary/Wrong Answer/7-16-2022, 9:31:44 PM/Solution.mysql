@@ -1,0 +1,7 @@
+// https://leetcode.com/problems/second-highest-salary
+
+# Write your MySQL query statement below
+WITH CTE AS
+			(SELECT Salary, RANK () OVER (ORDER BY Salary desc) AS RANK_desc
+			   FROM Employee)
+SELECT MAX(salary) AS SecondHighestSalary FROM CTE WHERE RANK_desc = 2
